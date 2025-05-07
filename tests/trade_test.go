@@ -5,9 +5,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gin-gonic/gin"
 	"stock-trades-api/config"
 	"stock-trades-api/routes"
+
+	"github.com/gin-gonic/gin"
 )
 
 func TestProtectedTradeRoute(t *testing.T) {
@@ -16,7 +17,6 @@ func TestProtectedTradeRoute(t *testing.T) {
 	routes.RegisterRoutes(r, db)
 
 	req, _ := http.NewRequest("GET", "/trades", nil)
-	// Missing token should return unauthorized
 	w := httptest.NewRecorder()
 	r.ServeHTTP(w, req)
 

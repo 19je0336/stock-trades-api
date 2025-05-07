@@ -8,8 +8,8 @@ import (
 	"stock-trades-api/routes"
 
 	"github.com/gin-gonic/gin"
-	"gorm.io/driver/sqlite"
-	"gorm.io/gorm"
+	// "gorm.io/driver/sqlite"
+	// "gorm.io/gorm"
 )
 
 func main() {
@@ -22,20 +22,15 @@ func main() {
 	}()
 
 	r := gin.Default()
-	// Add middleware here if needed (e.g., logging, CORS, recovery)
 
 	routes.RegisterRoutes(r, db)
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // Default port if not specified
+		port = "8080"
 	}
 
 	if err := r.Run(":" + port); err != nil {
 		log.Fatalf("Failed to run server: %v", err)
 	}
 }
-
-
-
-

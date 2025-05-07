@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"net/http"
-	"stock-trades-api/models"
+	// "stock-trades-api/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
